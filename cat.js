@@ -7,7 +7,7 @@ var catSchema = new Schema({
   name: String,
   breed: String,
   image: String,
-  age: Number
+  age: String
 });
 
 //attach schema to model

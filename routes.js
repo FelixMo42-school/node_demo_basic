@@ -3,6 +3,9 @@ module.exports = function(app) {
   //this is our Cat model
   var Cat = require('./cat')
 
+  var randomCat = require("random-cat")
+  var randomName = require("random-name")
+
   //home page: list al the cats
   app.get('/', function(req, res) {
 
@@ -18,6 +21,19 @@ module.exports = function(app) {
   //display (GET) the addCat page
   app.get('/addCat', function(req,res) {
     res.render("addCat.ejs")
+  })
+
+  app.get("/hack", async (req,res) => {
+    for (let i = 0; i < 1000; i++) {
+      await new Cat({
+        name: randomName.first() + " " + randomName.middle() + " " + randomName.last(),
+        age: Math.random() * 1000,
+        breed: "cat",
+        image: randomCat.get()
+      }).save()
+    }
+
+    res.send()
   })
 
   //handle the submit (POST) on adding a cat
