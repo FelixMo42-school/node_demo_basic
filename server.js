@@ -1,10 +1,12 @@
 var express    = require('express')
 var bodyParser = require('body-parser')
-var mongoose = require('mongoose');
+var mongoose = require('mongoose')
 var app = express()
 
 // Add Connect String Here
-mongoose.connect(ADD_CONNECT_STRING_HERE)
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0-cvp0r.mongodb.net/test?retryWrites=true&w=majority`, {
+    useNewUrlParser: true
+})
 
 //set up vars
 app.set('view engine','ejs');

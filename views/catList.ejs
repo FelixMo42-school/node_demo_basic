@@ -15,7 +15,10 @@ Your cats:
 
 <% for(var i = 0; i<cats.length;i++) { %>
   <tr>
-    <td><%= cats[i].name %></td>
+    <td>Name: <%= cats[i].name %></td>
+    <td>Breed: <%= cats[i].breed %></td>
+    <td>Age: <%= cats[i].age %></td>
+    <td>Image: <img src="<%= cats[i].image %>"/></td>
   </tr>
 <% } %>
 

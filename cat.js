@@ -4,7 +4,10 @@ var Schema = mongoose.Schema;
 
 // create a schema
 var catSchema = new Schema({
-  name: String
+  name: String,
+  breed: String,
+  image: String,
+  age: Number
 });
 
 //attach schema to model

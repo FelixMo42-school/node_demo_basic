@@ -23,11 +23,8 @@ module.exports = function(app) {
   //handle the submit (POST) on adding a cat
   app.post('/addCat', function(req,res) {
 
-    //grab value from the submitted request object
-    var catName = req.body.catName
-
     //create and save our cat, just like creating an object
-    var newCat = new Cat({ name: catName });
+    var newCat = new Cat(req.body);
     newCat.save(function (err) {
 
       console.log("saved: " + newCat.name)
